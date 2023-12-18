@@ -12,9 +12,8 @@ const Header = () => {
         <SearchSvg className={styles.searchIcon} />
         <input type="text" placeholder="Search" className={styles.searchInput}/>
       </div>
-      <div>
+      <div className={styles.shopContent}>
       <ShopSvg className={styles.shopIcon} />
-
       </div>
     </div>
   );
