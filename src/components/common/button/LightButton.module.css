@@ -1,0 +1,12 @@
+.lightButton{
+    background-color: #f1f6ff;
+    width: 10rem;
+    padding: 1rem;
+    margin-right: 2rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+}
