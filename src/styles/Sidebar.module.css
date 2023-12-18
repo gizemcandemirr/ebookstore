@@ -1,0 +1,23 @@
+.container ul li{
+    padding: 15px;
+    border-bottom: 1px solid #bdb8d7;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    list-style-type: none;
+    cursor: pointer;
+}    
+
+.container{
+    height: 100vh;
+    box-shadow: 5px 5px 5px 0px rgba(234, 234, 234, 0.5);
+    width: 13rem;
+}
+.icon{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.3rem;
+}
+.list{
+    display: flex;
+    align-items: center;
+}
