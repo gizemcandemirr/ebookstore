@@ -1,8 +1,8 @@
-import Layout from "@/components/layout";
+import Layout from "../../components/layout";
 import React from "react";
 import { useSelector } from "react-redux";
-import styles from "@/styles/Card.module.css";
-import LightButton from "@/components/common/button";
+import styles from "../../styles/Card.module.css";
+import LightButton from "../../components/common/button";
 
 const Card = () => {
   const { carts } = useSelector((state) => state);

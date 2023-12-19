@@ -1,7 +1,7 @@
-import BookList from "@/components/core/BookList";
-import ButtonList from "@/components/core/ButtonList";
-import Layout from "@/components/layout";
-import styles from "@/styles/Home.module.css";
+import BookList from "../components/core/BookList";
+import ButtonList from "../components/core/ButtonList";
+import Layout from "../components/layout";
+import styles from "../styles/Home.module.css";
 import { useSelector } from "react-redux";
 
 export default function Home() {

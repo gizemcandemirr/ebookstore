@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { HeartSvg, LogoSvg, SearchSvg, ShopSvg } from "../common/icons";
-import styles from "@/styles/Header.module.css";
+import styles from "../../styles/Header.module.css";
 import { useDispatch } from "react-redux";
-import { fetchBooks } from "@/store/bookSlice";
+import { fetchBooks } from "../../store/bookSlice";
 import Link from "next/link";
 
 const Header = () => {

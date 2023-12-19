@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import styles from "@/styles/Core.module.css";
+import styles from "../../styles/Core.module.css";
 import LightButton from "../common/button";
 import { useDispatch } from "react-redux";
-import { addToCart } from "@/store/cardSlice";
+import { addToCart } from "../../store/cardSlice";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 

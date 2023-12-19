@@ -1,6 +1,6 @@
 import React from 'react'
 import LightButton from '../common/button'
-import styles from '@/styles/Core.module.css'
+import styles from '../../styles/Core.module.css'
 const ButtonList = () => {
   return (
     <div className={styles.buttonList}>

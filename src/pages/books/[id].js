@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
-import LightButton from "../../components/common/button"; // Yolunuzu kontrol edin
-import styles from "@/styles/BookDetail.module.css"; // CSS modülünüz için uygun yol
+import LightButton from "../../components/common/button";
+import styles from "../../styles/BookDetail.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchBooks } from "@/store/bookSlice";
-import { addToCart } from "@/store/cardSlice";
+import { fetchBooks } from "../../store/bookSlice";
+import { addToCart } from "../..//store/cardSlice";
 import { toast } from "react-toastify";
 
 const BookDetail = () => {
