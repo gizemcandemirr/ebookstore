@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { LogoSvg, SearchSvg, ShopSvg } from "../common/icons";
+import { HeartSvg, LogoSvg, SearchSvg, ShopSvg } from "../common/icons";
 import styles from "@/styles/Header.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBooks } from "@/store/bookSlice";
@@ -34,7 +34,6 @@ const Header = () => {
         <span>E Book Store</span>
       </div>
       <div className={styles.searchBox}>
-      
         <input
           type="text"
           placeholder="Search"
@@ -42,11 +41,13 @@ const Header = () => {
           value={query}
           onChange={handleSearchChange}
         />
-       <button onClick={onSearch} className={styles.searchButton}>
+        <button onClick={onSearch} className={styles.searchButton}>
           <SearchSvg className={styles.searchIcon} />
         </button>
       </div>
       <div className={styles.shopContent}>
+        <HeartSvg className={styles.heartIcon} />
+    
         <ShopSvg className={styles.shopIcon} />
       </div>
     </div>

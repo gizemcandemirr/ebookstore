@@ -6,7 +6,7 @@ import DiscoverSvg from "./Discover";
 import SettingsSvg from "./Settings";
 import HelpSvg from "./Help";
 import HomeSvg from "./Home";
-
+import HeartSvg from "./Heart";
 export {
   BookmarkSvg,
   DiscoverSvg,
@@ -16,4 +16,5 @@ export {
   SearchSvg,
   SettingsSvg,
   ShopSvg,
+  HeartSvg
 };

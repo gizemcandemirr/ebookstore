@@ -1,16 +1,12 @@
 import BookList from "@/components/core/BookList";
 import ButtonList from "@/components/core/ButtonList";
+import Card from "@/components/core/Card";
 import Layout from "@/components/layout";
-import { fetchBooks, searchBooks } from "@/store/bookSlice";
 import styles from "@/styles/Home.module.css";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function Home() {
-  const { books, loading, error } = useSelector((state) => state.books);
-
-  
-  console.log(books);
+  const { books } = useSelector((state) => state.books);
   return (
     <Layout>
       <div className={styles.container}>
