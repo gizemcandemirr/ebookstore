@@ -7,8 +7,8 @@ import Link from "next/link";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const [searchTerm, setSearchTerm] = useState("react");
-  const [query, setQuery] = useState("react");
+  const [searchTerm, setSearchTerm] = useState("bestseller");
+  const [query, setQuery] = useState("");
 
   const handleSearchChange = (event) => {
     setQuery(event.target.value);
