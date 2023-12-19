@@ -2,3 +2,54 @@
     display: flex;
     align-items: center;
 }
+@media (max-width: 768px) {
+  .buttonList {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+.bookList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .bookCard {
+    flex: 1 0 18%;
+  }
+  
+  @media (max-width: 768px) {
+    .bookCard {
+      flex: 1 0 48%;
+      width: 100px;
+      justify-content: center;
+    }
+  }
+  
+  .bookCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .bookImage img {
+    width: 150px;
+    height: auto; 
+  }
+  
+  .bookInfo {
+    padding: 5px;
+  }
+  
+  .bookTitle {
+    margin: 0;
+    font-size: 0.7em;
+    color: #333;
+  }
+  
+  .bookAuthor {
+    margin: 10px 0 0;
+    font-size: 0.5em; 
+    color: #666;
+  }
+  

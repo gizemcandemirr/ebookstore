@@ -3,8 +3,11 @@ import Head from "next/head";
 import styles from "@/styles/Layout.module.css";
 import Header from "./header";
 import Sidebar from "./sidebar";
+import { useMediaQuery } from "../hooks";
 
 const Layout = ({ children }) => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   return (
     <>
       <Head>
@@ -16,7 +19,7 @@ const Layout = ({ children }) => {
       <div className={styles.container}>
         <Header />
         <div className={styles.content}>
-          <Sidebar />
+          {!isMobile && <Sidebar />}
           <main className={styles.main}>{children}</main>
         </div>
       </div>

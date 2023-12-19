@@ -10,3 +10,10 @@
     border: none;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    .lightButton {
+      margin-bottom: 0.5rem;
+      width: 7rem;
+    }
+  }

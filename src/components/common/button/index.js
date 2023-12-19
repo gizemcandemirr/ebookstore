@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./LightButton.module.css"
+import styles from "./LightButton.module.css";
 
-const LightButton = ({ text }) => {
+const LightButton = ({ onClick, text }) => {
   return (
     <div>
-      <button className={styles.lightButton}>{text}</button>
+      <button onClick={onClick} className={styles.lightButton}>{text}</button>
     </div>
   );
 };

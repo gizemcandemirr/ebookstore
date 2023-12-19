@@ -1,25 +1,48 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
-import { buildCreateSlice, asyncThunkCreator } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
-const fetchBooks = asyncThunkCreator(
+export const fetchBooks = createAsyncThunk(
   "books/fetchBooks",
-  async (id, thunkApi) => {
-    const res = await fetch(
-      `http://openlibrary.org/people/george08/lists.json`
-    );
-    return await res.json();
+  async (payload, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(
+        ` https://www.googleapis.com/books/v1/volumes?q=${payload}&key=AIzaSyAX56_6YrjMRf9uZBgmtXGcJC7GH38HIN0`
+       
+      );
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
 );
 
-const booksSlice = createSlice({
+
+const initialState = {
+  books: [],
+  loading: false,
+  error: null,
+};
+
+const bookSlice = createSlice({
   name: "books",
-  initialState: {
-    loading: false,
-    todos: [],
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchBooks.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchBooks.fulfilled, (state, action) => {
+        state.loading = false;
+        state.books = action.payload;
+      })
+      .addCase(fetchBooks.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
   },
-  reducers: (create) => ({
-    fetchList: fetchBooks,
-  }),
+  
 });
 
-export const { addTodo, deleteTodo, fetchList } = booksSlice.actions;
+export default bookSlice.reducer;
