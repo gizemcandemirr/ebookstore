@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import Image from "next/image";
 import LightButton from "../../components/common/button"; // Yolunuzu kontrol edin
 import styles from "@/styles/BookDetail.module.css"; // CSS modülünüz için uygun yol
@@ -19,10 +18,11 @@ const BookDetail = () => {
     dispatch(fetchBooks(id));
   }, [dispatch, id]);
 
-  const handleAddToCart = (id) => {
-    dispatch(addToCart(id));
+  const handleAddToCart = () => {
+    if (book) {
+      dispatch(addToCart(book));
+    }
   };
-
   if (!books) {
     return <div>Loading...</div>;
   }

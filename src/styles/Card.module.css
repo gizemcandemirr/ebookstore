@@ -1,0 +1,14 @@
+.card{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 1rem;
+    margin: 1rem;
+    justify-content: space-between;
+}
+.header{
+    padding:1rem
+}
+.notSale {
+    text-decoration: line-through;
+  }

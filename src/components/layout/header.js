@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { HeartSvg, LogoSvg, SearchSvg, ShopSvg } from "../common/icons";
 import styles from "@/styles/Header.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchBooks } from "@/store/bookSlice";
+import Link from "next/link";
 
 const Header = () => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("react");
   const [query, setQuery] = useState("react");
-  const { books, loading, error } = useSelector((state) => state.books);
 
   const handleSearchChange = (event) => {
     setQuery(event.target.value);
@@ -20,13 +20,6 @@ const Header = () => {
     dispatch(fetchBooks(searchTerm));
   }, [dispatch, searchTerm]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
@@ -47,8 +40,9 @@ const Header = () => {
       </div>
       <div className={styles.shopContent}>
         <HeartSvg className={styles.heartIcon} />
-    
-        <ShopSvg className={styles.shopIcon} />
+        <Link href={'/card'}>
+          <ShopSvg className={styles.shopIcon} />
+        </Link>
       </div>
     </div>
   );

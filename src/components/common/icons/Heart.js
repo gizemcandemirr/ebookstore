@@ -6,7 +6,6 @@ const HeartSvg = (props) => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    dataSlot="icon"
     {...props}
   >
     <path

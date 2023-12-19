@@ -10,6 +10,11 @@
     border: none;
     cursor: pointer;
 }
+.lightButton:hover{
+  background-color: #a5a5a5;
+  color:white;
+  border:1px solid #7f7f7f
+}
 
 @media (max-width: 768px) {
     .lightButton {
