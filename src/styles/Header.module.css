@@ -76,3 +76,7 @@
     height: 3rem;
     color: blue;
 }
+.link{
+    text-decoration: none;
+    color:#5d5d5d !important
+}

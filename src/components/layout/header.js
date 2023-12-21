@@ -41,10 +41,12 @@ const Header = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.logo}>
-        <LogoSvg className={styles.bookIcon} />
-        <span>E Book Store</span>
-      </div>
+      <Link href={"/"} className={styles.link}>
+        <div className={styles.logo}>
+          <LogoSvg className={styles.bookIcon} />
+          <span>E Book Store</span>
+        </div>
+      </Link>
       <div className={styles.searchBox}>
         <input
           type="text"
