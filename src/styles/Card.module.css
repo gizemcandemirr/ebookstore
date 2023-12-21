@@ -12,3 +12,17 @@
 .notSale {
     text-decoration: line-through;
   }
+  .exit{
+    border:none;
+    padding: 0.5rem;
+    background-color: red;
+    color: white;
+    font: 600;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin-right: 0.3rem;
+  }
+  .titleandButton{
+    display: flex;
+    align-items: center;
+  }

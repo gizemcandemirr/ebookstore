@@ -7,11 +7,13 @@ import SettingsSvg from "./Settings";
 import HelpSvg from "./Help";
 import HomeSvg from "./Home";
 import HeartSvg from "./Heart";
+import LoadingSvg from "./Loading";
 export {
   BookmarkSvg,
   DiscoverSvg,
   HelpSvg,
   HomeSvg,
+  LoadingSvg,
   LogoSvg,
   SearchSvg,
   SettingsSvg,
