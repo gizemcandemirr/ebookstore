@@ -6,7 +6,7 @@ export const fetchBooks = createAsyncThunk(
   async (payload, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        ` https://www.googleapis.com/books/v1/volumes?q=${payload}&key=AIzaSyAX56_6YrjMRf9uZBgmtXGcJC7GH38HIN0`
+        ` https://www.googleapis.com/books/v1/volumes?q=${payload}&key=${process.env.NEXT_PUBLIC_YOUR_API_KEY}`
        
       );
       return response.data;
