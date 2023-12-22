@@ -3,19 +3,19 @@ import axios from "axios";
 
 export const fetchBooks = createAsyncThunk(
   "books/fetchBooks",
-  async (payload, { rejectWithValue }) => {
+  async (query, { rejectWithValue }) => {
+    const baseURL = "https://www.googleapis.com/books/v1/volumes";
+    const apiKey = process.env.NEXT_PUBLIC_YOUR_API_KEY;
     try {
-      const response = await axios.get(
-        ` https://www.googleapis.com/books/v1/volumes?q=${payload}&key=${process.env.NEXT_PUBLIC_YOUR_API_KEY}`
-       
-      );
+      const response = await axios.get(baseURL, {
+        params: { q: query, key: apiKey },
+      });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
   }
 );
-
 
 const initialState = {
   books: [],
@@ -40,9 +40,8 @@ const bookSlice = createSlice({
       .addCase(fetchBooks.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-      })
+      });
   },
-  
 });
 
 export default bookSlice.reducer;

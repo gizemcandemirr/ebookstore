@@ -4,6 +4,9 @@ This is a [EBookstore](https://ebookstore-one.vercel.app/) project bootstrapped 
 
 First, add .env document at project , install node modules and run the development server:
 
+!! .env document include:
+NEXT_PUBLIC_YOUR_API_KEY= yourApiKey
+
 ```bash
 npm install
 npm run dev

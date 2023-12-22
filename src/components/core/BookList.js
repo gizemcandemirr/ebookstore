@@ -5,13 +5,14 @@ import styles from "./Core.module.css";
 import LightButton from "../common/button";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/slice/card";
-import { toast } from "react-toastify";
 import { useRouter } from "next/router";
+import { useToast } from "../../hooks";
 
 const BookList = ({ books }) => {
   const [visibleBooks, setVisibleBooks] = useState(4);
   const dispatch = useDispatch();
   const router = useRouter();
+  const showToast = useToast();
 
   const loadMoreBooks = () => {
     setVisibleBooks((prevVisibleBooks) => prevVisibleBooks + 4);
@@ -19,10 +20,10 @@ const BookList = ({ books }) => {
   const handleAddToCart = (book) => {
     if (book) {
       dispatch(addToCart(book));
-      toast.success("Product added to cart!");
+      showToast("Product added to cart!", "success");
       router.push("/basket");
     } else {
-      toast.error("Product not add to cart!");
+      showToast("Product not add to cart!", "error");
     }
   };
   return (
@@ -58,7 +59,7 @@ const BookList = ({ books }) => {
               )}
             </div>
           </Link>
-          <div className={""}>
+          <div>
             <LightButton
               text="Add to Cart"
               onClick={() => handleAddToCart(book)}

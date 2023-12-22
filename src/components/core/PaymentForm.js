@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import LightButton from "../common/button";
-import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import styles from "./Core.module.css";
+import { useToast } from "../../hooks";
 const PaymentForm = () => {
   const {
     register,
@@ -10,6 +10,7 @@ const PaymentForm = () => {
     formState: { errors },
   } = useForm();
   const router = useRouter();
+  const showToast = useToast();
 
   const onSubmit = (data) => {
     if (
@@ -17,10 +18,10 @@ const PaymentForm = () => {
       !errors?.expiryDate?.type &&
       !errors?.cvv?.type
     ) {
-      toast.success("Payment was made successfully!");
+      showToast("Payment was made successfully!", "success");
       router.push("/basket");
     } else {
-      toast.error("Please fill in the required fields");
+      showToast("Please fill in the required fields", "error");
     }
   };
 

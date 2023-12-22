@@ -49,7 +49,7 @@ const Card = () => {
           </div>
 
           <h3
-            className={!item.saleInfo.listPrice?.amount ? styles.notSale : ""}
+            className={!item.saleInfo.listPrice?.amount && styles.notSale}
           >
             {item.saleInfo.listPrice?.amount
               ? item.saleInfo.listPrice?.amount
