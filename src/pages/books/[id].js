@@ -8,6 +8,7 @@ import { fetchBooks } from "../../store/bookSlice";
 import { addToCart } from "../..//store/cardSlice";
 import { toast } from "react-toastify";
 import Layout from "../../components/layout";
+import { SALE_STATUS } from "../../utils/constant";
 const BookDetail = () => {
   const router = useRouter();
   const { id } = router.query;
@@ -31,7 +32,7 @@ const BookDetail = () => {
   if (!books) {
     return <div>Loading...</div>;
   }
-  console.log(book);
+
   return (
     <Layout>
       <div className={styles.container}>
@@ -50,17 +51,23 @@ const BookDetail = () => {
           </div>
           <div className={styles.bookInfo}>
             <h1 className={styles.bookTitle}>{book?.volumeInfo?.title}</h1>
-            <h4>{book?.searchInfo?.textSnippet}</h4>
+            <h4>{'Author' + ': ' + book?.volumeInfo?.authors}</h4>
+            <h4>{'Description' + ': ' +book?.searchInfo?.textSnippet}</h4>
+            <h4>{'Page Count' + ': ' +book?.volumeInfo?.pageCount}</h4>
+            <h4>{'Detail' + ': ' +book?.volumeInfo?.description}</h4>
+
             <h3
               className={
-                book?.saleInfo?.saleability === "NOT_FOR_SALE"
+                book?.saleInfo?.saleability === SALE_STATUS.NOT_FOR_SALE
                   ? styles.notForSaleAlert
                   : styles.onSaleAlert
               }
             >
-              {book?.saleInfo?.saleability === "NOT_FOR_SALE"
+              {book?.saleInfo?.saleability === SALE_STATUS.NOT_FOR_SALE
                 ? "NOT FOR SALE"
-                : "ON SALE"}
+                : "ON SALE"}{" "}
+              {book?.saleInfo?.listPrice?.amount + ' ' +
+                book?.saleInfo?.listPrice?.currencyCode}
             </h3>
           </div>
         </div>

@@ -14,7 +14,7 @@ import {  selectActiveButton } from "../../store/buttonSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const [searchTerm, setSearchTerm] = useState("popular");
+  const [searchTerm, setSearchTerm] = useState("");
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const activeButtonFind = useSelector(selectActiveButton);
@@ -25,14 +25,17 @@ const Header = () => {
   const onSearch = () => {
     setIsLoading(true);
     setSearchTerm(query);
+    dispatch(fetchBooks(query)).then(() => setIsLoading(false));
   };
-
+  
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       setIsLoading(true);
       setSearchTerm(query);
+      dispatch(fetchBooks(query)).then(() => setIsLoading(false));
     }
   };
+  
 
   useEffect(() => {
     if (searchTerm) {
@@ -42,10 +45,11 @@ const Header = () => {
   }, [searchTerm, dispatch]);
 
   useEffect(() => {
-    if (activeButtonFind) {
+    if (activeButtonFind && !query) {
       setSearchTerm(activeButtonFind.toLowerCase());
     }
   }, [activeButtonFind]);
+  
 
   return (
     <div className={styles.container}>
