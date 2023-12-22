@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchBooks } from "../../store/bookSlice";
 import { addToCart } from "../..//store/cardSlice";
 import { toast } from "react-toastify";
-
+import Layout from "../../components/layout";
 const BookDetail = () => {
   const router = useRouter();
   const { id } = router.query;
@@ -31,30 +31,44 @@ const BookDetail = () => {
   if (!books) {
     return <div>Loading...</div>;
   }
+  console.log(book);
   return (
-    <>
-      <div className={styles.bookDetail}>
-        <div className={styles.bookImage}>
-          {book?.volumeInfo?.imageLinks &&
-            book?.volumeInfo?.imageLinks.thumbnail && (
-              <Image
-                src={book?.volumeInfo?.imageLinks?.thumbnail}
-                alt={`Cover of ${book?.volumeInfo?.title}`}
-                width={200}
-                height={300}
-                layout="responsive"
-              />
-            )}
+    <Layout>
+      <div className={styles.container}>
+        <div className={styles.bookDetail}>
+          <div className={styles.bookImage}>
+            {book?.volumeInfo?.imageLinks &&
+              book?.volumeInfo?.imageLinks.thumbnail && (
+                <Image
+                  src={book?.volumeInfo?.imageLinks?.thumbnail}
+                  alt={`Cover of ${book?.volumeInfo?.title}`}
+                  width={200}
+                  height={300}
+                  layout="responsive"
+                />
+              )}
+          </div>
+          <div className={styles.bookInfo}>
+            <h1 className={styles.bookTitle}>{book?.volumeInfo?.title}</h1>
+            <h4>{book?.searchInfo?.textSnippet}</h4>
+            <h3
+              className={
+                book?.saleInfo?.saleability === "NOT_FOR_SALE"
+                  ? styles.notForSaleAlert
+                  : styles.onSaleAlert
+              }
+            >
+              {book?.saleInfo?.saleability === "NOT_FOR_SALE"
+                ? "NOT FOR SALE"
+                : "ON SALE"}
+            </h3>
+          </div>
         </div>
-        <div className={styles.bookInfo}>
-          <h1 className={styles.bookTitle}>{book?.volumeInfo?.title}</h1>
-          <h4>{book?.searchInfo?.textSnippet}</h4>
+        <div className={styles.addButton}>
+          <LightButton text="Add to Cart" onClick={handleAddToCart} />
         </div>
       </div>
-      <div className={styles.addButton}>
-        <LightButton text="Add to Cart" onClick={handleAddToCart} />
-      </div>
-    </>
+    </Layout>
   );
 };
 
