@@ -1,5 +1,5 @@
 import PaymentForm from "./PaymentForm";
-import styles from "../../styles/Core.module.css";
+import styles from "./Core.module.css";
 const PaymentModal = ({ isOpen, onClose }) => {
   return (
     <>

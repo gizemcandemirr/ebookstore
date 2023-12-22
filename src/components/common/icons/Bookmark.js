@@ -15,4 +15,5 @@ const BookmarkSvg = (props) => (
     />
   </svg>
 );
-export default BookmarkSvg;
+
+export default BookmarkSvg

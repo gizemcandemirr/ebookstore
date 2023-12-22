@@ -2,10 +2,10 @@ import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import Image from "next/image";
 import LightButton from "../../components/common/button";
-import styles from "../../styles/BookDetail.module.css";
+import styles from "./BookDetail.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchBooks } from "../../store/bookSlice";
-import { addToCart } from "../..//store/cardSlice";
+import { fetchBooks } from "../../store/slice/book";
+import { addToCart } from "../..//store/slice/card";
 import { toast } from "react-toastify";
 import Layout from "../../components/layout";
 import { SALE_STATUS } from "../../utils/constant";
@@ -24,7 +24,7 @@ const BookDetail = () => {
     if (book) {
       dispatch(addToCart(book));
       toast.success("Product added to cart!");
-      router.push("/card");
+      router.push("/basket");
     } else {
       toast.error("Product not add to cart!");
     }

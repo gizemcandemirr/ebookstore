@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import LightButton from "../common/button";
-import styles from "../../styles/Core.module.css";
+import styles from "./Core.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { selectActiveButton, setActiveButton } from "../../store/buttonSlice";
+import { selectActiveButton, setActiveButton } from "../../store/slice/button";
 
 const ButtonList = () => {
 

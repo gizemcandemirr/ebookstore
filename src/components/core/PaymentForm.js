@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import LightButton from "../common/button";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
-import styles from "../../styles/Core.module.css";
+import styles from "./Core.module.css";
 const PaymentForm = () => {
   const {
     register,
@@ -18,7 +18,7 @@ const PaymentForm = () => {
       !errors?.cvv?.type
     ) {
       toast.success("Payment was made successfully!");
-      router.push("/card");
+      router.push("/basket");
     } else {
       toast.error("Please fill in the required fields");
     }

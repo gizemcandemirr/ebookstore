@@ -1,10 +1,10 @@
 import Layout from "../../components/layout";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "../../styles/Card.module.css";
+import styles from "./Basket.module.css";
 import LightButton from "../../components/common/button";
 import PaymentModal from "../../components/core/PaymentModal";
-import { removeFromCart } from "../../store/cardSlice";
+import { removeFromCart } from "../../store/slice/card";
 
 const Card = () => {
   const { carts } = useSelector((state) => state);

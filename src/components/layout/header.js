@@ -6,11 +6,11 @@ import {
   SearchSvg,
   ShopSvg,
 } from "../common/icons";
-import styles from "../../styles/Header.module.css";
+import styles from "./Header.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchBooks } from "../../store/bookSlice";
+import { fetchBooks } from "../../store/slice/book";
 import Link from "next/link";
-import {  selectActiveButton } from "../../store/buttonSlice";
+import {  selectActiveButton } from "../../store/slice/button";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -78,7 +78,7 @@ const Header = () => {
       </div>
       <div className={styles.shopContent}>
         <HeartSvg className={styles.heartIcon} />
-        <Link href={"/card"}>
+        <Link href={"/basket"}>
           <ShopSvg className={styles.shopIcon} />
         </Link>
       </div>

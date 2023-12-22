@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import styles from "../../styles/Core.module.css";
+import styles from "./Core.module.css";
 import LightButton from "../common/button";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../store/cardSlice";
+import { addToCart } from "../../store/slice/card";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 
@@ -20,7 +20,7 @@ const BookList = ({ books }) => {
     if (book) {
       dispatch(addToCart(book));
       toast.success("Product added to cart!");
-      router.push("/card");
+      router.push("/basket");
     } else {
       toast.error("Product not add to cart!");
     }
@@ -29,7 +29,7 @@ const BookList = ({ books }) => {
     <div className={styles.bookList}>
       {books?.items?.slice(0, visibleBooks).map((book, index) => (
         <div key={index} className={styles.bookCard}>
-          <Link href={`/books/${book.id}`} passHref>
+          <Link href={`/book-list/${book.id}`} passHref>
             <div className={styles.bookImage}>
               {book.volumeInfo.imageLinks &&
                 book.volumeInfo.imageLinks.thumbnail && (
