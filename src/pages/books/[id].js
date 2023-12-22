@@ -51,10 +51,26 @@ const BookDetail = () => {
           </div>
           <div className={styles.bookInfo}>
             <h1 className={styles.bookTitle}>{book?.volumeInfo?.title}</h1>
-            <h4>{'Author' + ': ' + book?.volumeInfo?.authors}</h4>
-            <h4>{'Description' + ': ' +book?.searchInfo?.textSnippet}</h4>
-            <h4>{'Page Count' + ': ' +book?.volumeInfo?.pageCount}</h4>
-            <h4>{'Detail' + ': ' +book?.volumeInfo?.description}</h4>
+            <h4>
+              {"Author" + ": " }{ book?.volumeInfo?.authors
+                ? book?.volumeInfo?.authors
+                : "Not Defined"}
+            </h4>
+            <h4>
+              {"Description" + ": "}{  book?.searchInfo?.textSnippet
+                ? book?.searchInfo?.textSnippet
+                : "Not Defined"}
+            </h4>
+            <h4>
+              {"Page Count" + ": "}{  book?.volumeInfo?.pageCount
+                ? book?.volumeInfo?.pageCount
+                : "Not Defined"}
+            </h4>
+            <h4>
+              {"Detail" + ": " } { book?.volumeInfo?.description
+                ? book?.volumeInfo?.description
+                : "Not Defined"}
+            </h4>
 
             <h3
               className={
@@ -66,7 +82,8 @@ const BookDetail = () => {
               {book?.saleInfo?.saleability === SALE_STATUS.NOT_FOR_SALE
                 ? "NOT FOR SALE"
                 : "ON SALE"}{" "}
-              {book?.saleInfo?.listPrice?.amount + ' ' +
+              {book?.saleInfo?.listPrice?.amount +
+                " " +
                 book?.saleInfo?.listPrice?.currencyCode}
             </h3>
           </div>
