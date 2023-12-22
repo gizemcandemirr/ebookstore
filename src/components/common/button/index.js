@@ -1,13 +1,17 @@
 import React from "react";
 import styles from "./LightButton.module.css";
 
-const LightButton = ({ disabled, onClick, text }) => {
+const LightButton = ({ active, disabled, onClick, text }) => {
+  const buttonClasses = active 
+    ? `${styles.lightButton} ${styles.activeButton}` 
+    : styles.lightButton;
+
   return (
     <div>
       <button
         disabled={disabled}
         onClick={onClick}
-        className={styles.lightButton}
+        className={buttonClasses}
       >
         {text}
       </button>

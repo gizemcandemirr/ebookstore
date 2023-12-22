@@ -21,4 +21,25 @@
       margin-bottom: 0.5rem;
       width: 7rem;
     }
+    .activeButton {
+      margin-bottom: 0.5rem;
+      width: 7rem;
+    }
+  }
+  .activeButton {
+    background-color: blue; 
+    color: white;
+    width: 10rem;
+    padding: 1rem;
+    margin-right: 2rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+  }
+  .activeButton:hover{
+    background-color: #4d5fa8;
+    border:1px solid #4d5fa8
   }

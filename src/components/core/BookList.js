@@ -9,12 +9,12 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 
 const BookList = ({ books }) => {
-  const [visibleBooks, setVisibleBooks] = useState(5);
+  const [visibleBooks, setVisibleBooks] = useState(4);
   const dispatch = useDispatch();
   const router = useRouter();
 
   const loadMoreBooks = () => {
-    setVisibleBooks((prevVisibleBooks) => prevVisibleBooks + 10);
+    setVisibleBooks((prevVisibleBooks) => prevVisibleBooks + 4);
   };
   const handleAddToCart = (book) => {
     if (book) {

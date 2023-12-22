@@ -1,28 +1,42 @@
-.card{
-    display: flex;
-    align-items: center;
-    background-color: white;
-    padding: 1rem;
-    margin: 1rem;
-    justify-content: space-between;
+.card {
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 1.2rem;
+  margin: 1rem;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+  border-radius: 8px;
 }
-.header{
-    padding:1rem
+
+.header {
+  padding: 1rem;
+  font-size: 1.1rem;
 }
+
 .notSale {
-    text-decoration: line-through;
-  }
-  .exit{
-    border:none;
-    padding: 0.5rem;
-    background-color: red;
-    color: white;
-    font: 600;
-    border-radius: 1rem;
-    cursor: pointer;
-    margin-right: 0.3rem;
-  }
-  .titleandButton{
-    display: flex;
-    align-items: center;
-  }
+  text-decoration: line-through;
+  color: #999;
+}
+
+.exit {
+  border: none;
+  padding: 0.6rem 1rem;
+  background-color: #ff4d4f;
+  color: white;
+  font-weight: 600;
+  border-radius: 1rem;
+  cursor: pointer;
+  margin-right: 0.3rem;
+  transition: background-color 0.3s;
+}
+
+.exit:hover {
+  background-color: #ff6666;
+}
+
+.titleandButton {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

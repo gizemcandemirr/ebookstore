@@ -7,15 +7,17 @@ import {
   ShopSvg,
 } from "../common/icons";
 import styles from "../../styles/Header.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchBooks } from "../../store/bookSlice";
 import Link from "next/link";
+import {  selectActiveButton } from "../../store/buttonSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const [searchTerm, setSearchTerm] = useState("bestseller");
+  const [searchTerm, setSearchTerm] = useState("popular");
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const activeButtonFind = useSelector(selectActiveButton);
 
   const handleSearchChange = (event) => {
     setQuery(event.target.value);
@@ -34,10 +36,16 @@ const Header = () => {
 
   useEffect(() => {
     if (searchTerm) {
-      dispatch(fetchBooks(searchTerm));
+      setIsLoading(true);
+      dispatch(fetchBooks(searchTerm)).then(() => setIsLoading(false));
     }
-    setIsLoading(false);
-  }, [dispatch, searchTerm]);
+  }, [searchTerm, dispatch]);
+
+  useEffect(() => {
+    if (activeButtonFind) {
+      setSearchTerm(activeButtonFind.toLowerCase());
+    }
+  }, [activeButtonFind]);
 
   return (
     <div className={styles.container}>
