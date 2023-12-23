@@ -1,7 +1,8 @@
+import * as React from "react"
 import { useForm } from "react-hook-form";
 import LightButton from "../common/button";
 import { useRouter } from "next/router";
-import styles from "./Core.module.css";
+import "./Core.module.css";
 import { useToast } from "../../hooks";
 const PaymentForm = () => {
   const {
@@ -32,9 +33,7 @@ const PaymentForm = () => {
         {...register("cardNumber", { required: true, pattern: /^[0-9]{16}$/ })}
         placeholder="Card Number"
       />
-      {errors.cardNumber && (
-        <p className={styles.label}>*Card number is invalid</p>
-      )}
+      {errors.cardNumber && <p className={"label"}>*Card number is invalid</p>}
       <label>Expiry Date</label>
 
       <input
@@ -45,7 +44,7 @@ const PaymentForm = () => {
         placeholder="Expiration date (AA/YY)"
       />
       {errors.expiryDate && (
-        <p className={styles.label}>*Expiration date is invalid</p>
+        <p className={"label"}>*Expiration date is invalid</p>
       )}
       <label>CVV</label>
 
@@ -53,7 +52,7 @@ const PaymentForm = () => {
         {...register("cvv", { required: true, pattern: /^[0-9]{3,4}$/ })}
         placeholder="CVV"
       />
-      {errors.cvv && <p className={styles.label}>*CVV is invalid</p>}
+      {errors.cvv && <p className={"label"}>*CVV is invalid</p>}
 
       <LightButton text="Pay" onClick={onSubmit} />
     </form>
