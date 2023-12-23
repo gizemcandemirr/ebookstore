@@ -3,19 +3,17 @@ import * as React from "react";
 import PaymentForm from "../PaymentForm";
 import { fireEvent, render, screen } from "@testing-library/react";
 import useToast from "../../../hooks/useToast";
-import { toast } from "react-toastify";
 
 jest.mock("next/router", () => ({
   useRouter: jest.fn(),
 }));
 
 describe("PaymentForm", () => {
+  test("showToast fonksiyonu başarılı mesaj gösteriyor mu?", () => {
+    const showToast = useToast();
+    showToast("Başarılı işlem", "success");
+  });
 
-    test("showToast fonksiyonu başarılı mesaj gösteriyor mu?", () => {
-        const showToast = useToast();
-        showToast("Başarılı işlem", "success");
-      });
-    
   test("renders the payment form", () => {
     render(<PaymentForm />);
     expect(screen.getByPlaceholderText("Card Number")).toBeInTheDocument();
